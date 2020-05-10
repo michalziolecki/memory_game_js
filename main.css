@@ -1,0 +1,23 @@
+body
+{
+	margin: 0;
+	background-color: #26282E;
+	color: #209781;
+    font-family: 'Lobster', sans-serif;
+    font-size: 28px;
+}
+
+a:link    { color: #209781; text-decoration: none; }
+a:visited { color: #209781; }
+a:active  { color: #209781; }
+a:hover   { color: #E9B64A; }
+
+
+
+.photo {
+	border-radius: 20px;
+	border: 2px solid gold;
+	height: 176px;
+	width: 128px;
+}
+
