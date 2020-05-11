@@ -21,8 +21,8 @@ function randomCards(){
 function showCards(){
 	var photoDivs = "";
 	for (it = 0; it < cards.length; it++){
-		let photo = "<img class=\"photo\" src=\"img/cardBack.png\">";
-		let photoDiv = "<div class=\"photoDiv\" id=\"photoDivId" + it + "\" >" + photo +"</div>";
+		let photo = "<img class=\"photo\" id=\"img" + it + "\" src=\"img/cardBack.png\" >"; //
+		let photoDiv = "<div class=\"photoDivSecret\" id=\"photoDivId" + it + "\" >" + photo +"</div>";
 		photoDivs += photoDiv;
 		if ((it + 1) %6 === 0 ) photoDivs += "<div style=\"clear: both;\"></div>";
 	}
@@ -31,7 +31,26 @@ function showCards(){
 	$("#photoContainerId").html(photoDivs);
 }
 
+function setClickEvents(){
+	for (let it = 0; it < cards.length; it++){
+		let id = "#photoDivId" + it;
+		console.log("test setClickEvents id: " + id);
+		console.log("test setClickEvents it: " + it);
+		$(id).on("click", function (event) {
+			showUpCard(id, it);
+		});
+	}
+}
+
+function showUpCard(id, number) {
+	var img = "img/" + cards[number];
+	$(id).addClass("photoDivKnown");
+	$(id).removeClass("photoDivSecret");
+	$(id + " img").attr("src", img);
+}
+
 function startGame(){
 	randomCards();
 	showCards();
+	setClickEvents();
 }
