@@ -12,12 +12,29 @@ a:visited { color: #209781; }
 a:active  { color: #209781; }
 a:hover   { color: #E9B64A; }
 
+.photoContainer {
+	/*display: flex;*/
+	text-align: center;
+	margin-top: 10%;
+}
 
+.photoDiv {
+	filter: brightness(70%);
+	display: inline-block;
+	padding: 10px;
+}
+
+.photoDiv:hover {
+	filter: brightness(100%);
+	display: inline-block;
+	padding: 10px;
+	cursor: pointer;
+}
 
 .photo {
 	border-radius: 20px;
 	border: 2px solid gold;
-	height: 176px;
-	width: 128px;
+	height: 132px;
+	width: 96px;
 }
 
