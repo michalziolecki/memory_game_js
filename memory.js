@@ -66,13 +66,6 @@ function showUpCard(id, number) {
 	$(id + " img").attr("src", img);
 }
 
-function showUpBackCard(id) {
-	var img = "img/cardBack.png";
-	$(id).addClass("photoDivSecret");
-	$(id).removeClass("photoDivKnown");
-	$(id + " img").attr("src", img);
-}
-
 function compareCardsAndMakeAction(){
 	console.log(firstCard);
 	console.log(secondCard);
@@ -81,11 +74,11 @@ function compareCardsAndMakeAction(){
 	if (first_img === second_img){
 		score++;
 		$(scoreLabel).text("Total score: " + score);
-		setTimeout(hiddenAfterTimeout(firstCard, secondCard), 1000);
+		hiddenAfterTimeout(firstCard, secondCard);
 	} else {
-		// setTimeout(showUpBackCard(firstCard), 1000);
-		// setTimeout(showUpBackCard(secondCard), 1000);
-		console.log("FALSE");
+		var first = firstCard;
+		var second = secondCard;
+		setTimeout(showUpBackCard.bind(null, firstCard, secondCard), 3000);
 	}
 	firstCard = "";
 	secondCard = "";
@@ -94,6 +87,18 @@ function compareCardsAndMakeAction(){
 function hiddenAfterTimeout(first_id, second_id){
 	$(first_id).fadeTo(1200, 0);
 	$(second_id).fadeTo(1200, 0);
+}
+
+function showUpBackCard(first_id, second_id) {
+	setBack(first_id);
+	setBack(second_id);
+}
+
+function setBack(_id){
+	var _img = "img/cardBack.png";
+	$(_id).addClass("photoDivSecret");
+	$(_id).removeClass("photoDivKnown");
+	$(_id + " img").attr("src", _img);
 }
 
 function startGame(){
