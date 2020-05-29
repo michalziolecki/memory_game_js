@@ -43,9 +43,10 @@ function setClickEvents(){
 }
 
 function checkAndCompareCards(id, number){
-	console.log('CLICK: ' + clickCounter);
+	if (firstCard != "" && secondCard != "") return;
 	if ($(id + " img").attr("src") === "img/cardBack.png"){
 		clickCounter++;
+		console.log('CLICK: ' + clickCounter);
 	}
 	if (clickCounter === 1){
 		showUpCard(id, number);
@@ -75,13 +76,13 @@ function compareCardsAndMakeAction(){
 		score++;
 		$(scoreLabel).text("Total score: " + score);
 		hiddenAfterTimeout(firstCard, secondCard);
+		setTimeout("clearGlobals()", 1500);
 	} else {
 		var first = firstCard;
 		var second = secondCard;
-		setTimeout(showUpBackCard.bind(null, firstCard, secondCard), 3000);
+		setTimeout(showUpBackCard.bind(null, first, second), 2000);
+		setTimeout("clearGlobals()", 2200);
 	}
-	firstCard = "";
-	secondCard = "";
 }
 
 function hiddenAfterTimeout(first_id, second_id){
@@ -92,6 +93,11 @@ function hiddenAfterTimeout(first_id, second_id){
 function showUpBackCard(first_id, second_id) {
 	setBack(first_id);
 	setBack(second_id);
+}
+
+function clearGlobals(){
+	firstCard = "";
+	secondCard = "";
 }
 
 function setBack(_id){
