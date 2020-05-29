@@ -4,6 +4,7 @@ var cards = new Array();
 var firstCard = "";
 var secondCard = "";
 var clickCounter = 0;
+var score = 0;
 
 function randomCards(){
 	let fields  = cardsSet.length * 2;
@@ -65,20 +66,29 @@ function showUpCard(id, number) {
 	$(id + " img").attr("src", img);
 }
 
+function showUpBackCard(id) {
+	var img = "img/cardBack.png";
+	$(id).addClass("photoDivSecret");
+	$(id).removeClass("photoDivKnown");
+	$(id + " img").attr("src", img);
+}
+
 function compareCardsAndMakeAction(){
 	console.log(firstCard);
 	console.log(secondCard);
 	let first_img = $(firstCard + " img").attr("src");
 	let second_img = $(secondCard + " img").attr("src");
 	if (first_img === second_img){
-		console.log("TRUE");
+		score++;
+		$(scoreLabel).text("Total score: " + score);
 		setTimeout(hiddenAfterTimeout(firstCard, secondCard), 1000);
 	} else {
+		// setTimeout(showUpBackCard(firstCard), 1000);
+		// setTimeout(showUpBackCard(secondCard), 1000);
 		console.log("FALSE");
 	}
 	firstCard = "";
 	secondCard = "";
-	console.log("firstCard: " + firstCard);
 }
 
 function hiddenAfterTimeout(first_id, second_id){
