@@ -54,8 +54,10 @@ a:hover   { color: #E9B64A; }
 	/* origin photo size 220/160*/
 	border-radius: 20px;
 	border: 2px solid gold;
-	height: 176px;
-	width: 128px;
+	/*height: 176px;*/
+	height: 110px;
+	width: 80px;
+	/*width: 128px;*/
 }
 
 .hidden {
