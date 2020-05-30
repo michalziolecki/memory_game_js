@@ -89,12 +89,17 @@ function compareCardsAndMakeAction(){
 		$(scoreLabel).text("Total score: " + score);
 		hiddenAfterTimeout(firstCard, secondCard);
 		setTimeout("clearGlobals()", 1500);
+		if (score * 2 === cards.length) finish();
 	} else {
 		var first = firstCard;
 		var second = secondCard;
 		setTimeout(showUpBackCard.bind(null, first, second), 2000);
 		setTimeout("clearGlobals()", 2200);
 	}
+}
+
+function finish(){
+
 }
 
 function hiddenAfterTimeout(first_id, second_id){

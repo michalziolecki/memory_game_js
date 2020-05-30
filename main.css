@@ -56,6 +56,28 @@ a:hover   { color: #E9B64A; }
 	border: 2px solid gold;
 }
 
-.hidden {
-	transition: transform 0.5s linear;
+#finishPop{
+	text-align: center;
+	font-size: 50px;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	display: none;
+}
+
+#finishPop div{
+	padding: 1rem;
+}
+
+#reloadBtn{
+	border-width: 2px;
+	border-color: #209781;
+	border-radius: 1rem;
+	height: 4rem;
+	width: 8rem;
+	background-color: #26282E;
+	color: #209781;
+	font-family: 'Lobster', sans-serif;
+	font-size: 2rem;
+	cursor: pointer;
+	outline: none;
 }
