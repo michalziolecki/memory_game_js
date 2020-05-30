@@ -22,6 +22,17 @@ function randomCards(){
 	console.log(cards)
 }
 
+function setCardsSize(){
+	let screenHeight =  window.screen.availHeight;
+	let screenWidth =  window.screen.availWidth;
+	var _height = screenHeight * 0.15;
+	var _width = screenWidth * 0.06;
+	for (it = 0; it < cards.length; it++){
+		$("#img" + it).css({height: _height});
+		$("#img" + it).css({width: _width});
+	}
+}
+
 function showCards(){
 	var photoDivs = "";
 	for (it = 0; it < cards.length; it++){
@@ -31,6 +42,7 @@ function showCards(){
 		if ((it + 1) %6 === 0 ) photoDivs += "<div style=\"clear: both;\"></div>";
 	}
 	$("#photoContainerId").html(photoDivs);
+	setCardsSize();
 }
 
 function setClickEvents(){
