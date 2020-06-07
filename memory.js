@@ -99,7 +99,8 @@ function compareCardsAndMakeAction(){
 }
 
 function finish(){
-
+	$('#photoContainerId').css('display', 'none');
+	$('#finishPop').css('display', 'block');
 }
 
 function hiddenAfterTimeout(first_id, second_id){
